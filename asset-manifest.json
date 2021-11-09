@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/what-to-see/static/css/main.359dc24a.chunk.css",
+    "main.js": "/what-to-see/static/js/main.7626e779.chunk.js",
+    "main.js.map": "/what-to-see/static/js/main.7626e779.chunk.js.map",
+    "runtime-main.js": "/what-to-see/static/js/runtime-main.cc2d1ae0.js",
+    "runtime-main.js.map": "/what-to-see/static/js/runtime-main.cc2d1ae0.js.map",
+    "static/js/2.ed61a31d.chunk.js": "/what-to-see/static/js/2.ed61a31d.chunk.js",
+    "static/js/2.ed61a31d.chunk.js.map": "/what-to-see/static/js/2.ed61a31d.chunk.js.map",
+    "static/js/3.e7c7eaf1.chunk.js": "/what-to-see/static/js/3.e7c7eaf1.chunk.js",
+    "static/js/3.e7c7eaf1.chunk.js.map": "/what-to-see/static/js/3.e7c7eaf1.chunk.js.map",
+    "index.html": "/what-to-see/index.html",
+    "static/css/main.359dc24a.chunk.css.map": "/what-to-see/static/css/main.359dc24a.chunk.css.map",
+    "static/js/2.ed61a31d.chunk.js.LICENSE.txt": "/what-to-see/static/js/2.ed61a31d.chunk.js.LICENSE.txt",
+    "static/media/not-found-backdrop.6eb105a9.jpg": "/what-to-see/static/media/not-found-backdrop.6eb105a9.jpg",
+    "static/media/not-found-poster.e6c7ea26.jpg": "/what-to-see/static/media/not-found-poster.e6c7ea26.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc2d1ae0.js",
+    "static/js/2.ed61a31d.chunk.js",
+    "static/css/main.359dc24a.chunk.css",
+    "static/js/main.7626e779.chunk.js"
+  ]
+}
