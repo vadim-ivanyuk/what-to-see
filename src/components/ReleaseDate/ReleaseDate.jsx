@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useFilters } from '../../../store/selectors';
-import { onChangeFilters } from '../../../store/filters/filters.actions';
+import { useFilters } from '../../store/selectors';
+import { onChangeFilters } from '../../store/filters/filters.actions';
 
 import { Select } from '../Sort/Sort.style';
-import { FilterName } from '../Filters.style';
+import { FilterName } from '../Filters/Filters.style';
 
 const getYears = () => {
 	const currentYear = new Date().getFullYear();

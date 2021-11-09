@@ -1,6 +1,11 @@
 import { myAxios, handleError } from '../../helpers';
 
-import { getMovies, getMovie, setActiveMovieId } from './movies.actions';
+import {
+	getMovies,
+	getMovie,
+	setActiveMovieId,
+	setTrendMovies,
+} from './movies.actions';
 
 export const getMoviesThunk = () => (dispatch, getState) => {
 	const { filters } = getState();
@@ -46,6 +51,37 @@ export const getMovieThunk = (movieId) => (dispatch, getState) => {
 		.then(({ data }) => {
 			dispatch(getMovie(data));
 			dispatch(setActiveMovieId(data.id));
+		})
+		.catch((error) => {
+			handleError(error);
+		});
+};
+
+export const getTrendMoviesThunk = () => (dispatch, getState) => {
+	const { filters } = getState();
+
+	myAxios
+		.get(`/trending/${filters.type}/${filters.time_window}`)
+		.then(({ data }) => {
+			dispatch(setTrendMovies(data.results));
+		})
+		.catch((error) => {
+			handleError(error);
+		});
+};
+
+export const searchingMovies = (searchParams) => (dispatch, getState) => {
+	const { filters } = getState();
+
+	const queryParams = {
+		query: searchParams,
+		page: filters.page,
+	};
+
+	myAxios
+		.get(`/search/movie`, queryParams)
+		.then((data) => {
+			console.log(data);
 		})
 		.catch((error) => {
 			handleError(error);

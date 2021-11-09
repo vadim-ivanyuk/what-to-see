@@ -4,6 +4,7 @@ const initialState = {
 	currentMovies: [],
 	movie: {},
 	activeMovieId: null,
+	trendMovies: [],
 };
 
 export const moviesReducer = (state = initialState, { type, payload }) => {
@@ -14,6 +15,8 @@ export const moviesReducer = (state = initialState, { type, payload }) => {
 			return { ...state, movie: payload.movie };
 		case types.SET_ACTIVE_MOVIE_ID:
 			return { ...state, activeMovieId: payload.activeMovieId };
+		case types.SET_TREND_MOVIES:
+			return { ...state, trendMovies: payload.trendMovies };
 		default:
 			return state;
 	}

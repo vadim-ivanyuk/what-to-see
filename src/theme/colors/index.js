@@ -5,5 +5,4 @@ export {
 	colorOrange,
 	colorRed,
 	colorWhite,
-	colorGrey,
 } from './colors';

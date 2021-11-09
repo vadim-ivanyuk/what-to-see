@@ -4,6 +4,7 @@ import facebook from './facebook.png';
 import instagram from './instagram.png';
 import twitter from './twitter.png';
 import imdb from './imdb.png';
+import searchImage from './search-image.jpg';
 
 export {
 	defaultPoster,
@@ -12,4 +13,5 @@ export {
 	instagram,
 	twitter,
 	imdb,
+	searchImage,
 };

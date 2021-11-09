@@ -21,3 +21,10 @@ export const setActiveMovieId = (activeMovieId) => ({
 		activeMovieId,
 	},
 });
+
+export const setTrendMovies = (trendMovies) => ({
+	type: types.SET_TREND_MOVIES,
+	payload: {
+		trendMovies,
+	},
+});

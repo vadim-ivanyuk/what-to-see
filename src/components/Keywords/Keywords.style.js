@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
-import { colorDark, colorWhite } from '../../../theme/colors';
+import { colorDark, colorWhite } from '../../theme/colors';
 
-export const GenreItem = styled.div`
+export const WrapperInput = styled.div`
+	margin-top: 10px;
+`;
+
+export const KeywordsWrapper = styled.div`
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+export const Keyword = styled.div`
 	width: max-content;
 	border: 1px solid ${colorDark};
 	border-radius: 14px;
@@ -21,10 +31,4 @@ export const GenreItem = styled.div`
 		background: ${colorDark};
 		color: ${colorWhite};
 	}
-`;
-
-export const GenresWrapper = styled.div`
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
 `;

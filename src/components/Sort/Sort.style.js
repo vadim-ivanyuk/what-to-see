@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colorWhite } from '../../../theme/colors';
+import { colorWhite } from '../../theme/colors';
 
 export const Wrapper = styled.div`
 	padding: 15px;

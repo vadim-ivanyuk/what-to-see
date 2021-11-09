@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { resetFilters } from '../../../store/filters/filters.actions';
+import { resetFilters } from '../../store/filters/filters.actions';
 
-import { Button } from '../../Button/Button';
+import { Button } from '../Button';
 
 import { Wrapper } from './Reset.style';
 

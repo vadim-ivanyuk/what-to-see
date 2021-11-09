@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-import {
-	colorDark,
-	colorWhite,
-	colorBlack,
-	colorOrange,
-} from '../../theme/colors';
+import { colorDark, colorWhite } from '../../theme/colors';
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -32,7 +27,7 @@ export const BlockTitle = styled.p`
 	text-align: ${({ center }) => (center ? 'center' : 'left')};
 `;
 
-export const Budget = styled.div`
+export const MoreInfoWrapper = styled.div`
 	width: 300px;
 	height: 160px;
 	padding: 0px 5px;
@@ -43,7 +38,7 @@ export const Budget = styled.div`
 	}
 `;
 
-export const Keywords = styled.div`
+export const KeywordsWrapper = styled.div`
 	width: 500px;
 	height: 200px;
 	padding: 0px 5px;
@@ -54,67 +49,13 @@ export const Keywords = styled.div`
 	}
 `;
 
-export const KeywordsList = styled.div`
-	width: 100%;
-	max-height: 150px;
-	display: flex;
-	flex-wrap: wrap;
-	overflow-y: scroll;
-`;
-
-export const KeywordsListItem = styled.div`
-	height: 25px;
-	background: rgba(0, 0, 0, 0.2);
-	border: 1px solid ${colorBlack};
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 3px;
-	padding: 4px 10px;
-	color: ${colorOrange};
-	border-radius: 4px;
-	font-size: 15px;
-	font-weight: bold;
-`;
-
-export const Social = styled.div`
+export const SocialWrapper = styled.div`
 	width: 300px;
 	height: 100px;
 	padding: 0px 5px;
+
 	@media (max-width: 400px) {
 		width: 100%;
 		margin-top: 15px;
-	}
-`;
-
-export const SocialLinks = styled.div`
-	display: flex;
-`;
-
-export const SocialLinksItem = styled.div`
-	margin: 4px;
-
-	& img {
-		width: 27px;
-		height: 27px;
-		cursor: pointer;
-		filter: brightness(70%);
-		transition: all 0.2s;
-		&:hover {
-			filter: brightness(100%);
-		}
-	}
-`;
-
-export const Paragraph = styled.div`
-	margin-bottom: 3px;
-	color: ${colorWhite};
-
-	& a {
-		color: inherit;
-	}
-
-	& strong {
-		color: ${colorOrange};
 	}
 `;

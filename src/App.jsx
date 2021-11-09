@@ -1,25 +1,28 @@
 import React from 'react';
 import {
 	BrowserRouter as Router,
+	Switch,
 	Route,
-	Routes,
-	Navigate,
+	Redirect,
 } from 'react-router-dom';
 
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+
 import { HomePage } from './pages/HomePage';
 import { MoviePage } from './pages/MoviePage';
-import { Footer } from './components/Footer';
+import { SearchPage } from './pages/SearchPage';
 
 export default function App() {
 	return (
 		<Router basename='/what-to-see/'>
 			<Header />
-			<Routes>
-				<Route path='/' element={<HomePage />} />
-				<Route path='/movie/:movieId' element={<MoviePage />} />
-				<Route element={<Navigate to='/' />} />
-			</Routes>
+			<Switch>
+				<Route exact path='/' component={HomePage} />
+				<Route exact path='/movie/:movieId' component={MoviePage} />
+				<Route exact path='/search' component={SearchPage} />
+				<Redirect to='/' />
+			</Switch>
 			<Footer />
 		</Router>
 	);

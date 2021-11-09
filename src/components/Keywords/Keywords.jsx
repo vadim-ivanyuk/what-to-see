@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { handleError, myAxios } from '../../../helpers';
+import { handleError, myAxios } from '../../helpers';
 
-import { useInput } from '../../../hooks';
-import { useFilters } from '../../../store/selectors';
-import { onChangeFilters } from '../../../store/filters/filters.actions';
+import { useInput } from '../../hooks';
+import { useFilters } from '../../store/selectors';
+import { onChangeFilters } from '../../store/filters/filters.actions';
 
-import { Input } from '../../Input';
+import { Input } from '../Input';
 
-import { FilterName } from '../Filters.style';
+import { FilterName } from '../Filters/Filters.style';
 import { KeywordsWrapper, WrapperInput, Keyword } from './Keywords.style';
 
 export const Keywords = () => {

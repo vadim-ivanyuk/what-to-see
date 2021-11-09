@@ -18,3 +18,8 @@ export const onChangePage = (page) => ({
 	type: types.ONCHANGE_PAGE,
 	payload: { page },
 });
+
+export const onChangeTimeWindow = (time_window) => ({
+	type: types.ONCHANGE_TIME_WINDOW,
+	payload: { time_window },
+});

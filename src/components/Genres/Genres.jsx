@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { myAxios, handleError } from '../../../helpers';
+import { myAxios, handleError } from '../../helpers';
 
-import { useFilters } from '../../../store/selectors';
-import { onChangeFilters } from '../../../store/filters/filters.actions';
+import { useFilters } from '../../store/selectors';
+import { onChangeFilters } from '../../store/filters/filters.actions';
 
-import { FilterName } from '../Filters.style';
+import { FilterName } from '../Filters/Filters.style';
 
 import { GenreItem, GenresWrapper } from './Genres.style';
 import { useDispatch } from 'react-redux';

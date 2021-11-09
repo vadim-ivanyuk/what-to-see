@@ -9,6 +9,8 @@ const initialState = {
 	page: 1,
 	total_pages: null,
 	with_keywords: [],
+	time_window: 'day',
+	searchType: 'movie',
 };
 
 export const filtersReducer = (state = initialState, { type, payload }) => {
@@ -19,11 +21,14 @@ export const filtersReducer = (state = initialState, { type, payload }) => {
 			return {
 				...initialState,
 				type: state.type,
+				time_window: state.time_window,
 			};
 		case types.SET_TOTAL_PAGES:
 			return { ...state, total_pages: payload.total_pages };
 		case types.ONCHANGE_PAGE:
 			return { ...state, page: payload.page };
+		case types.ONCHANGE_TIME_WINDOW:
+			return { ...state, time_window: payload.time_window };
 		default:
 			return state;
 	}

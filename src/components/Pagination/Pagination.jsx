@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFilters, useMovies } from '../../store/selectors';
 import { onChangePage } from '../../store/filters/filters.actions';
 
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 import { Wrapper, PaginationWrapper } from './Pagination.style';
 
