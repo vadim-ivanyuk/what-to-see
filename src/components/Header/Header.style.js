@@ -30,14 +30,10 @@ export const Name = styled.p`
 	}
 `;
 
-export const WithTmdbApi = styled.a`
+export const WithTmdbApi = styled.p`
 	font-size: 14px;
 	font-weight: 700;
 	letter-spacing: 1px;
 	margin-left: 10px;
 	color: ${colorWhite};
-
-	&:hover {
-		color: ${colorOrange};
-	}
 `;

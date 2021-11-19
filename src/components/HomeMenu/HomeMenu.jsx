@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { onChangeFilters } from '../../store/filters/filters.actions';
 import { useFilters } from '../../store/selectors';
 
-import { movieSubTypes, tvSubTypes } from './subTypes';
+import { subTypes } from './subTypes';
 
-import { SubTypesList } from './SubTypesList';
+import { SubTypesList } from '../SubTypesList';
 
-import { MoviesMenuWrapper, Wrapper, MenuTitle } from './MoviesMenu.style';
+import { MoviesMenuWrapper, Wrapper, MenuTitle } from './HomeMenu.style';
 
-export const MoviesMenu = () => {
+export const HomeMenu = () => {
 	const { type } = useSelector(useFilters);
 	const dispatch = useDispatch();
 
@@ -30,8 +30,7 @@ export const MoviesMenu = () => {
 					Сериалы
 				</MenuTitle>
 			</Wrapper>
-			{type === 'movie' && <SubTypesList subTypeslist={movieSubTypes} />}
-			{type === 'tv' && <SubTypesList subTypeslist={tvSubTypes} />}
+			<SubTypesList subTypeslist={subTypes[type]} />
 		</MoviesMenuWrapper>
 	);
 };

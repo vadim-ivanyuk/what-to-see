@@ -2,21 +2,22 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { onChangeFilters } from '../../../store/filters/filters.actions';
-import { useFilters } from '../../../store/selectors';
+import { onChangeFilters } from '../../store/filters/filters.actions';
+import { useFilters } from '../../store/selectors';
 
-import { Wrapper, MenuSubTitle } from '../MoviesMenu.style';
+import { Wrapper, MenuSubTitle } from '../HomeMenu/HomeMenu.style';
 
 export const SubTypesList = ({ subTypeslist }) => {
 	const dispatch = useDispatch();
 	const { subType } = useSelector(useFilters);
 
 	const onChangeSubType = (choosedType) => () => {
-		if (subType !== choosedType) {
-			dispatch(onChangeFilters({ name: 'subType', value: choosedType }));
-		} else {
-			dispatch(onChangeFilters({ name: 'subType', value: null }));
-		}
+		dispatch(
+			onChangeFilters({
+				name: 'subType',
+				value: subType !== choosedType ? choosedType : null,
+			})
+		);
 	};
 
 	return (

@@ -6,8 +6,9 @@ export const Wrapper = styled.div`
 `;
 
 export const PaginationWrapper = styled.p`
-	width: 400px;
+	padding: 0px 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: bold;
 `;

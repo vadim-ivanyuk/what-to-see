@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { API_YOUTUBE_EMBED_URL } from '../../utils/apies';
 import { handleError, myAxios } from '../../helpers';
 
-import { useFilters, useMovies } from '../../store/selectors';
+import { useFilters } from '../../store/selectors';
 
 import { Player } from '../Player';
 import { Title } from '../Title';
@@ -21,35 +22,27 @@ import {
 	LoadMore,
 } from './Trailers.style';
 
-export const Trailers = () => {
+export const Trailers = ({ activeId }) => {
 	const [trailers, setTrailers] = useState([]);
 	const [activeTrailer, setActiveTrailer] = useState(0);
 	const [availableTrailers, setavailableTrailers] = useState(4);
-	const { activeMovieId } = useSelector(useMovies);
 	const { type } = useSelector(useFilters);
 
 	useEffect(() => {
-		if (activeMovieId)
+		if (activeId) {
 			myAxios
-				.get(`/${type}/${activeMovieId}/videos`)
+				.get(`/${type}/${activeId}/videos`, {
+					language: 'ru-RU,en-EN',
+				})
 				.then(({ data }) => {
-					setTrailers(data.results);
-					myAxios
-						.get(`/${type}/${activeMovieId}/videos`, {
-							language: 'en-EN',
-						})
-						.then(({ data }) => {
-							setTrailers([...trailers, ...data.results]);
-						})
-						.catch((error) => {
-							handleError(error);
-						});
+					setTrailers([...data.results]);
 				})
 				.catch((error) => {
 					handleError(error);
 				});
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeMovieId]);
+	}, [activeId]);
 
 	const changeActiveTrailer = (key) => () => {
 		setActiveTrailer(key);
@@ -115,4 +108,8 @@ export const Trailers = () => {
 			)}
 		</Container>
 	);
+};
+
+Trailers.propTypes = {
+	activeId: PropTypes.string.isRequired,
 };

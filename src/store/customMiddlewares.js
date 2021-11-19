@@ -1,11 +1,4 @@
-import {
-	onChangePage,
-	resetFilters,
-	setTotalPages,
-} from './filters/filters.actions';
-
-import { GET_MOVIES } from './movies/movies.types';
-import { ONCHANGE_FILTERS } from './filters/filters.types';
+import { onChangeFilters, resetFilters } from './filters/filters.actions';
 
 export const clearFiltersWhenChangeMovieType =
 	({ dispatch }) =>
@@ -13,34 +6,26 @@ export const clearFiltersWhenChangeMovieType =
 	(action) => {
 		const { payload } = action;
 
-		if (payload && payload.name === 'type') {
+		if (payload?.name === 'type') {
 			dispatch(resetFilters());
 		}
 
 		return next(action);
 	};
 
-export const setTotalPagesWhenGetMovies =
-	({ dispatch }) =>
-	(next) =>
-	(action) => {
-		const { type, payload } = action;
-
-		if (type === GET_MOVIES) {
-			dispatch(setTotalPages(payload.total_pages));
-		}
-
-		return next(action);
-	};
-
 export const updatePageWhenOnchangeFilters =
-	({ dispatch }) =>
+	({ dispatch, getState }) =>
 	(next) =>
 	(action) => {
-		const { type } = action;
+		const { filters } = getState();
+		const { payload } = action;
 
-		if (type === ONCHANGE_FILTERS) {
-			dispatch(onChangePage(1));
+		if (
+			Object.keys(filters).includes(payload?.name) &&
+			payload?.name !== 'page' &&
+			filters.page !== 1
+		) {
+			dispatch(onChangeFilters({ name: 'page', value: 1 }));
 		}
 
 		return next(action);

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { onChangeTimeWindow } from '../../store/filters/filters.actions';
-import { getTrendMoviesThunk } from '../../store/movies/movies.thunks';
-import { useFilters, useMovies } from '../../store/selectors';
+import { useFilters } from '../../store/selectors';
+
+import { myAxios, handleError } from '../../helpers';
 
 import { Loader } from '../Loader';
 import { Slider } from '../Slider';
@@ -18,18 +18,23 @@ import {
 } from './Trends.style';
 
 export const Trends = () => {
-	const { time_window, type } = useSelector(useFilters);
-	const { trendMovies } = useSelector(useMovies);
-	const dispatch = useDispatch();
+	const [trends, setTrends] = useState([]);
+	const [timeWindow, setTimeWindow] = useState('day');
+	const { type } = useSelector(useFilters);
 
 	useEffect(() => {
-		dispatch(getTrendMoviesThunk());
-	}, [dispatch, time_window, type]);
+		myAxios
+			.get(`/trending/${type}/${timeWindow}`)
+			.then(({ data }) => {
+				setTrends(data.results);
+			})
+			.catch((error) => {
+				handleError(error);
+			});
+	}, [timeWindow, type]);
 
 	const handleClick = () => {
-		const updatedTimeWindow = time_window === 'day' ? 'week' : 'day';
-
-		dispatch(onChangeTimeWindow(updatedTimeWindow));
+		setTimeWindow(timeWindow === 'day' ? 'week' : 'day');
 	};
 
 	return (
@@ -37,16 +42,16 @@ export const Trends = () => {
 			<FlexWrapper>
 				<Title>В тренде</Title>
 				<TimeWindowMenu>
-					<Item checked={time_window === 'day'} onClick={handleClick}>
+					<Item checked={timeWindow === 'day'} onClick={handleClick}>
 						Сегодня
 					</Item>
-					<Item checked={time_window === 'week'} onClick={handleClick}>
+					<Item checked={timeWindow === 'week'} onClick={handleClick}>
 						На этой неделе
 					</Item>
 				</TimeWindowMenu>
 			</FlexWrapper>
 			<TrendsList>
-				{trendMovies.length ? <Slider moviesList={trendMovies} /> : <Loader />}
+				{trends.length ? <Slider moviesList={trends} /> : <Loader />}
 			</TrendsList>
 		</TrendsWrapper>
 	);

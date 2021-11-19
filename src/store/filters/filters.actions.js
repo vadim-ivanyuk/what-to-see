@@ -8,18 +8,3 @@ export const onChangeFilters = ({ name, value }) => ({
 export const resetFilters = () => ({
 	type: types.RESET_FILTERS,
 });
-
-export const setTotalPages = (total_pages) => ({
-	type: types.SET_TOTAL_PAGES,
-	payload: { total_pages },
-});
-
-export const onChangePage = (page) => ({
-	type: types.ONCHANGE_PAGE,
-	payload: { page },
-});
-
-export const onChangeTimeWindow = (time_window) => ({
-	type: types.ONCHANGE_TIME_WINDOW,
-	payload: { time_window },
-});

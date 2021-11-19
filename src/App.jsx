@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 
 import { HomePage } from './pages/HomePage';
 import { MoviePage } from './pages/MoviePage';
+import { TvPage } from './pages/TvPage';
 import { SearchPage } from './pages/SearchPage';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
 			<Switch>
 				<Route exact path='/' component={HomePage} />
 				<Route exact path='/movie/:movieId' component={MoviePage} />
+				<Route exact path='/tv/:tvId' component={TvPage} />
 				<Route exact path='/search' component={SearchPage} />
 				<Redirect to='/' />
 			</Switch>

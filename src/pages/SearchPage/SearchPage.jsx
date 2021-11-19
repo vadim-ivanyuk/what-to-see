@@ -1,24 +1,63 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { searchingMovies } from '../../store/movies/movies.thunks';
+import { useFilters } from '../../store/selectors';
+
+import { Search } from '../../components/Search';
+import { SearchFilters } from '../../components/SearchFilters';
+import { List } from '../../components/List';
+import { Pagination } from '../../components/Pagination';
+
+import { handleError, myAxios } from '../../helpers';
 
 import { Container } from '../../theme/GlobalComponents';
-import { SearchPageWrapper } from './SearchPage.style';
+import { FlexWrapper, MoviesListWrapper } from './SearchPage.style';
 
 export const SearchPage = () => {
+	const [searchResults, setSearchResults] = useState([]);
+	const [totalPages, setTotalPages] = useState(null);
+	const [totalResults, setTotalResults] = useState(null);
+	const { type, page } = useSelector(useFilters);
 	const { search } = useLocation();
-	const dispatch = useDispatch();
-	const searchParams = search.split('=')[1];
+	const [, searchParams] = search.split('=');
 
 	useEffect(() => {
-		dispatch(searchingMovies(searchParams));
-	}, [dispatch, searchParams]);
+		getSearchData();
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [searchParams, type, page]);
+
+	const getSearchData = () => {
+		const queryParams = {
+			query: decodeURI(searchParams),
+			page,
+		};
+
+		myAxios
+			.get(`/search/${type}`, queryParams)
+			.then(({ data }) => {
+				setSearchResults(data.results);
+				setTotalPages(data.total_pages);
+				setTotalResults(data.total_results);
+			})
+			.catch((error) => {
+				handleError(error);
+			});
+	};
 
 	return (
-		<Container>
-			<SearchPageWrapper>SearchPage</SearchPageWrapper>
-		</Container>
+		<>
+			<Search />
+			<Container>
+				<FlexWrapper>
+					<SearchFilters totalResults={totalResults} />
+					<MoviesListWrapper>
+						<List list={searchResults} />
+						<Pagination totalPages={totalPages} />
+					</MoviesListWrapper>
+				</FlexWrapper>
+			</Container>
+		</>
 	);
 };

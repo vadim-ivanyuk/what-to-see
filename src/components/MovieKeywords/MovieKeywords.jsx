@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { handleError, myAxios } from '../../helpers';
-import { useFilters, useMovies } from '../../store/selectors';
+import { useFilters } from '../../store/selectors';
 
 import { BlockTitle } from '../AdditionalInfo/AdditionalInfo.style';
 import { KeywordsList, KeywordsListItem } from './MovieKeywords.style';
 
-export const MovieKeywords = () => {
+export const MovieKeywords = ({ activeId }) => {
 	const [keywords, setKeywords] = useState([]);
-	const { activeMovieId } = useSelector(useMovies);
 	const { type } = useSelector(useFilters);
 
 	useEffect(() => {
-		if (activeMovieId) {
+		if (activeId) {
 			myAxios
-				.get(`/${type}/${activeMovieId}/keywords`)
+				.get(`/${type}/${activeId}/keywords`)
 				.then(({ data }) => {
 					setKeywords(data.keywords || data.results || []);
 				})
@@ -24,7 +23,7 @@ export const MovieKeywords = () => {
 				});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeMovieId]);
+	}, [activeId]);
 
 	return (
 		<>

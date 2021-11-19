@@ -13,8 +13,8 @@ import { FilterName } from '../Filters/Filters.style';
 import { KeywordsWrapper, WrapperInput, Keyword } from './Keywords.style';
 
 export const Keywords = () => {
-	const { onChange, value } = useInput();
 	const [keywords, setKeywords] = useState([]);
+	const { onChange, value } = useInput();
 	const { with_keywords } = useSelector(useFilters);
 	const dispatch = useDispatch();
 
@@ -33,26 +33,31 @@ export const Keywords = () => {
 		}
 	}, [value]);
 
-	const handleClick = (keyword) => () => {
-		let updatedWithKeywods = [];
-		const isInWithKeywords = with_keywords.some(
-			(with_keyword) => with_keyword.id === keyword.id
+	const deleteKeyword = (keyword) => () => {
+		const updatedKeywords = with_keywords.filter(
+			(with_keyword) => with_keyword.id !== keyword.id
 		);
-
-		if (isInWithKeywords) {
-			updatedWithKeywods = with_keywords.filter(
-				(with_keyword) => with_keyword.id !== keyword.id
-			);
-		} else {
-			updatedWithKeywods = [...with_keywords, keyword];
-		}
 
 		dispatch(
 			onChangeFilters({
 				name: 'with_keywords',
-				value: updatedWithKeywods,
+				value: updatedKeywords,
 			})
 		);
+	};
+
+	const addKeyword = (keyword) => () => {
+		const isInWithKeywords = with_keywords.some(
+			(with_keyword) => with_keyword.id === keyword.id
+		);
+
+		!isInWithKeywords &&
+			dispatch(
+				onChangeFilters({
+					name: 'with_keywords',
+					value: [...with_keywords, keyword],
+				})
+			);
 	};
 
 	return (
@@ -60,7 +65,7 @@ export const Keywords = () => {
 			<FilterName>Ключевые слова</FilterName>
 			<KeywordsWrapper>
 				{with_keywords.map((keyword) => (
-					<Keyword checked onClick={handleClick(keyword)} key={keyword.id}>
+					<Keyword onClick={deleteKeyword(keyword)} checked key={keyword.id}>
 						{keyword.name}
 					</Keyword>
 				))}
@@ -74,7 +79,7 @@ export const Keywords = () => {
 			</WrapperInput>
 			<KeywordsWrapper>
 				{keywords.map((keyword) => (
-					<Keyword onClick={handleClick(keyword)} key={keyword.id}>
+					<Keyword onClick={addKeyword(keyword)} key={keyword.id}>
 						{keyword.name}
 					</Keyword>
 				))}

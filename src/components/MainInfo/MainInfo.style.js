@@ -120,7 +120,7 @@ export const TagLine = styled.p`
 
 export const VoteAvarageContainer = styled.div`
 	display: flex;
-	margin: 16px 0px;
+	margin: 12px 0px;
 `;
 
 export const VoteAvarage = styled.p`
@@ -165,7 +165,7 @@ export const Overview = styled.div`
 	width: 97%;
 	padding-right: 5px;
 	margin-bottom: 0px;
-	max-height: ${({ tagline }) => (tagline ? '100px' : '150px')};
+	max-height: ${({ tagline }) => (tagline ? '100px' : '130px')};
 	overflow-x: hidden;
 	overflow-y: auto;
 	@media (max-width: 830px) {
@@ -175,7 +175,7 @@ export const Overview = styled.div`
 		overflow-y: hidden;
 	}
 	@media (max-width: 450px) {
-		max-height: ${({ tagline }) => (tagline ? '100px' : '150px')};
+		max-height: ${({ tagline }) => (tagline ? '100px' : '130px')};
 		overflow-y: auto;
 		margin-top: 5px;
 	}

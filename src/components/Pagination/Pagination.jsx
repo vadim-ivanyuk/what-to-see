@@ -1,45 +1,41 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useFilters, useMovies } from '../../store/selectors';
-import { onChangePage } from '../../store/filters/filters.actions';
+import { useFilters } from '../../store/selectors';
+import { onChangeFilters } from '../../store/filters/filters.actions';
 
 import { Button } from '../Button';
 
 import { Wrapper, PaginationWrapper } from './Pagination.style';
 
-export const Pagination = () => {
-	const { page, total_pages } = useSelector(useFilters);
-	const { currentMovies } = useSelector(useMovies);
+export const Pagination = ({ totalPages }) => {
+	const { page } = useSelector(useFilters);
 	const dispatch = useDispatch();
 
 	const incrementPage = () => {
-		dispatch(onChangePage(page + 1));
+		dispatch(onChangeFilters({ name: 'page', value: page + 1 }));
 	};
 
 	const decrementPage = () => {
-		dispatch(onChangePage(page - 1));
+		dispatch(onChangeFilters({ name: 'page', value: page - 1 }));
 	};
 
 	return (
-		<>
-			{currentMovies.length ? (
-				<Wrapper>
-					<Button
-						disabled={page === 1}
-						text={'Назад'}
-						handleClick={decrementPage}
-					/>
-					<PaginationWrapper>
-						{page} из {total_pages}
-					</PaginationWrapper>
-					<Button
-						disabled={page === total_pages}
-						text={'Вперед'}
-						handleClick={incrementPage}
-					/>
-				</Wrapper>
-			) : null}
-		</>
+		<Wrapper>
+			<Button disabled={page === 1} text={'Prev'} handleClick={decrementPage} />
+			<PaginationWrapper>
+				{page} из {totalPages}
+			</PaginationWrapper>
+			<Button
+				disabled={page === totalPages}
+				text={'Next'}
+				handleClick={incrementPage}
+			/>
+		</Wrapper>
 	);
+};
+
+Pagination.propTypes = {
+	totalPages: PropTypes.number,
 };

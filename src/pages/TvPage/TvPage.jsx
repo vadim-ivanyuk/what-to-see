@@ -8,20 +8,20 @@ import { Trailers } from '../../components/Trailers';
 import { AdditionalInfo } from '../../components/AdditionalInfo';
 import { SimilarMovies } from '../../components/SimilarMovies';
 
-export const MoviePage = () => {
-	const [movie, setMovie] = useState({});
-	const { movieId } = useParams();
+export const TvPage = () => {
+	const [tv, setTv] = useState({});
+	const { tvId } = useParams();
 
 	useEffect(() => {
-		getMovie();
+		getTv();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [movieId]);
+	}, [tvId]);
 
-	const getMovie = () => {
+	const getTv = () => {
 		myAxios
-			.get(`/movie/${movieId}`)
+			.get(`/tv/${tvId}`)
 			.then(({ data }) => {
-				setMovie(data);
+				setTv(data);
 			})
 			.catch((error) => {
 				handleError(error);
@@ -30,10 +30,10 @@ export const MoviePage = () => {
 
 	return (
 		<div>
-			<MainInfo info={movie} />
-			<Trailers activeId={movieId} />
-			<AdditionalInfo info={movie} />
-			<SimilarMovies activeId={movieId} />
+			<MainInfo info={tv} />
+			<Trailers activeId={tvId} />
+			<AdditionalInfo info={tv} />
+			<SimilarMovies activeId={tvId} />
 		</div>
 	);
 };

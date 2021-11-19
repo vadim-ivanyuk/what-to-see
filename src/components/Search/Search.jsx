@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -20,13 +20,15 @@ import {
 } from './Search.style';
 
 export const Search = () => {
-	const search = useInput();
+	const { search } = useLocation();
+	const [, searchParams] = search.split('=');
+	const searchInput = useInput(decodeURI(searchParams));
 	const history = useHistory();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		history.push(`/search?query=${search.value}`);
+		history.push(`/search?query=${searchInput.value}`);
 	};
 
 	return (
@@ -46,7 +48,7 @@ export const Search = () => {
 						</div>
 						<SearchInputWrapper onSubmit={onSubmit}>
 							<Input
-								{...search}
+								{...searchInput}
 								placeholder={'Найти фильмы, актёров, сериалы...'}
 							/>
 							<Button handleClick={onSubmit} type='submit' text={'Искать'} />

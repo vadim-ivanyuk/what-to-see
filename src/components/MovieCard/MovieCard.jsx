@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
+import { useSelector } from 'react-redux';
+
+import { useFilters } from '../../store/selectors';
 
 import { API_IMG_URL } from '../../utils/apies';
 import { defaultPoster } from '../../img';
@@ -16,10 +19,12 @@ import {
 } from './MovieCard.style';
 
 export const MovieCard = ({ movie }) => {
+	const { type } = useSelector(useFilters);
+
 	return (
 		<MovieItemWrapper>
 			<div>
-				<Link to={`/movie/${movie.id}`}>
+				<Link to={`/${type}/${movie.id}`}>
 					<PosterImage
 						src={
 							movie.poster_path
@@ -35,9 +40,13 @@ export const MovieCard = ({ movie }) => {
 					{String(movie.vote_average).substr(0, 3)}
 				</RateMovie>
 				<MovieTitle>
-					<Link to={`/movie/${movie.id}`}>{movie.title || movie.name}</Link>
+					<Link to={`/${type}/${movie.id}`}>{movie.title || movie.name}</Link>
 				</MovieTitle>
-				<Release>{dayjs(movie.release_date).format('MMM DD YYYY')}</Release>
+				<Release>
+					{dayjs(movie.release_date || movie.first_air_date || null).format(
+						'MMM DD YYYY'
+					)}
+				</Release>
 			</Description>
 		</MovieItemWrapper>
 	);

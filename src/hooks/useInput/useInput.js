@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 export const useInput = (initial = '') => {
-	const [value, setValue] = useState(initial);
+	const [value, setValue] = useState(initial === 'undefined' ? '' : initial);
 	const isFirstRender = useRef(true);
 
 	return {
@@ -15,5 +15,6 @@ export const useInput = (initial = '') => {
 			setValue('');
 		},
 		isFirstRender,
+		setValue,
 	};
 };

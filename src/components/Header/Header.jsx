@@ -15,13 +15,7 @@ export const Header = () => {
 							What <span> to see?</span>
 						</Link>
 					</Name>
-					<WithTmdbApi
-						href='https://www.themoviedb.org/'
-						rel='nofollow'
-						target='blank'
-					>
-						with TMDB api
-					</WithTmdbApi>
+					<WithTmdbApi>with TMDB api</WithTmdbApi>
 				</Logo>
 			</Container>
 		</Wrapper>

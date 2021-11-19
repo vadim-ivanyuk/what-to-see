@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useFilters, useMovies } from '../../store/selectors';
+import { useFilters } from '../../store/selectors';
 
 import { handleError, myAxios } from '../../helpers';
 
@@ -10,15 +10,14 @@ import { facebook, instagram, twitter, imdb } from '../../img';
 import { BlockTitle } from '../AdditionalInfo/AdditionalInfo.style';
 import { SocialLinks, SocialLinksItem } from './Social.style';
 
-export const Social = () => {
+export const Social = ({ activeId }) => {
 	const [socialLinks, setSocialLinks] = useState({});
 	const { type } = useSelector(useFilters);
-	const { activeMovieId } = useSelector(useMovies);
 
 	useEffect(() => {
-		if (activeMovieId) {
+		if (activeId) {
 			myAxios
-				.get(`/${type}/${activeMovieId}/external_ids`)
+				.get(`/${type}/${activeId}/external_ids`)
 				.then(({ data }) => {
 					setSocialLinks(data);
 				})
@@ -27,7 +26,7 @@ export const Social = () => {
 				});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [activeMovieId]);
+	}, [activeId]);
 
 	return (
 		<>
