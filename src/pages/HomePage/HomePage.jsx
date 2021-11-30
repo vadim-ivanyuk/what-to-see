@@ -47,6 +47,7 @@ export const HomePage = () => {
 		<>
 			<Search />
 			<Container>
+				<Trends />
 				<HomeMenu />
 				<FlexWrapper>
 					<Filters />
@@ -55,7 +56,6 @@ export const HomePage = () => {
 						<Pagination totalPages={totalPages} />
 					</MoviesListWrapper>
 				</FlexWrapper>
-				<Trends />
 			</Container>
 		</>
 	);

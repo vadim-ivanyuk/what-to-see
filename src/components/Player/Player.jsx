@@ -16,6 +16,7 @@ export const Player = ({ id }) => {
 				height='100%'
 				src={`${API_YOUTUBE_EMBED_URL}${id}?enablejsapi=1&origin=${document.location.origin}`}
 				frameBorder='0'
+				allowFullScreen
 			></iframe>
 		</PlayerContainer>
 	);
