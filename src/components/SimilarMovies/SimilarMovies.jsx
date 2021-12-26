@@ -31,7 +31,7 @@ export const SimilarMovies = ({ activeId }) => {
 	return (
 		<Container>
 			<Title text={'Similar movies'} />
-			<Slider moviesList={similarMovies} />
+			<Slider list={similarMovies} />
 		</Container>
 	);
 };

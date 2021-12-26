@@ -145,6 +145,8 @@ export const VoteAvarageText = styled.p`
 
 export const Paragraph = styled.p`
 	margin-bottom: 0.5px;
+	max-height: 47px;
+	overflow-y: auto;
 `;
 
 export const BoldText = styled.span`

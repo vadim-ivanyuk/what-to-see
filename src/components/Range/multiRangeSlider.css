@@ -1,0 +1,26 @@
+.multi-range-slider {
+    width: 100%;
+    border: 0px;
+    box-shadow: none;
+    padding: 0px;
+}
+
+.multi-range-slider .label {
+    margin-top: 3px;
+}
+
+.multi-range-slider .bar .bar-inner {
+    background: #24242c;
+}
+
+.multi-range-slider .thumb::before {
+    box-shadow: none;
+}
+
+.multi-range-slider .bar-left {
+    background: #ffffff;
+}
+
+.multi-range-slider .bar-right {
+    background: #ffffff;
+}

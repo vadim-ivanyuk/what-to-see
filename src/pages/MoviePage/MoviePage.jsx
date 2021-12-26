@@ -6,6 +6,7 @@ import { myAxios, handleError } from '../../helpers';
 import { MainInfo } from '../../components/MainInfo';
 import { Trailers } from '../../components/Trailers';
 import { AdditionalInfo } from '../../components/AdditionalInfo';
+import { Actors } from '../../components/Actors';
 import { SimilarMovies } from '../../components/SimilarMovies';
 
 export const MoviePage = () => {
@@ -14,6 +15,10 @@ export const MoviePage = () => {
 
 	useEffect(() => {
 		getMovie();
+
+		document.querySelector('#header').scrollIntoView({
+			behavior: 'smooth',
+		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [movieId]);
 
@@ -32,6 +37,7 @@ export const MoviePage = () => {
 		<div>
 			<MainInfo info={movie} />
 			<Trailers activeId={movieId} />
+			<Actors activeId={movieId} />
 			<AdditionalInfo info={movie} />
 			<SimilarMovies activeId={movieId} />
 		</div>

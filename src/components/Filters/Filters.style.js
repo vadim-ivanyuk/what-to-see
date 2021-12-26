@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colorWhite } from '../../theme/colors';
 
 export const Wrapper = styled.div`
-	width: 25%;
+	width: 325px;
 	min-width: 250px;
 `;
 

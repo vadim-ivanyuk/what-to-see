@@ -18,13 +18,13 @@ ol[class] {
   padding: 0;
 }
 
-div::-webkit-scrollbar {
+div::-webkit-scrollbar, p::-webkit-scrollbar {
   width: 8px; /* ширина для вертикального скролла */
   height: 8px; /* высота для горизонтального скролла */
   background-color: #24242c;
 }
 
-div::-webkit-scrollbar-thumb {
+div::-webkit-scrollbar-thumb, p::-webkit-scrollbar-thumb {
   background-color: #363641;
 }
 

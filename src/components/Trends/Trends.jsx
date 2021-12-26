@@ -51,7 +51,7 @@ export const Trends = () => {
 				</TimeWindowMenu>
 			</FlexWrapper>
 			<TrendsList>
-				{trends.length ? <Slider moviesList={trends} /> : <Loader />}
+				{trends.length ? <Slider list={trends} /> : <Loader />}
 			</TrendsList>
 		</TrendsWrapper>
 	);

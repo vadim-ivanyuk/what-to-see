@@ -7,7 +7,7 @@ import { Wrapper, Logo, Name, WithTmdbApi } from './Header.style';
 
 export const Header = () => {
 	return (
-		<Wrapper>
+		<Wrapper id='header'>
 			<Container>
 				<Logo>
 					<Name>

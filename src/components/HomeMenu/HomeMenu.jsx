@@ -21,7 +21,7 @@ export const HomeMenu = () => {
 	};
 
 	return (
-		<MoviesMenuWrapper>
+		<MoviesMenuWrapper id='homeMenu'>
 			<Wrapper>
 				<MenuTitle checked={type === 'movie'} onClick={onChangeType('movie')}>
 					Фильмы

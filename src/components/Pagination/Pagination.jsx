@@ -9,16 +9,26 @@ import { Button } from '../Button';
 
 import { Wrapper, PaginationWrapper } from './Pagination.style';
 
-export const Pagination = ({ totalPages }) => {
+export const Pagination = ({ totalPages, scrollAnchor }) => {
 	const { page } = useSelector(useFilters);
 	const dispatch = useDispatch();
 
+	const scrollToHomeMenu = () => {
+		document.querySelector(`#${scrollAnchor}`).scrollIntoView({
+			behavior: 'smooth',
+		});
+	};
+
 	const incrementPage = () => {
 		dispatch(onChangeFilters({ name: 'page', value: page + 1 }));
+
+		scrollToHomeMenu();
 	};
 
 	const decrementPage = () => {
 		dispatch(onChangeFilters({ name: 'page', value: page - 1 }));
+
+		scrollToHomeMenu();
 	};
 
 	return (
@@ -38,4 +48,5 @@ export const Pagination = ({ totalPages }) => {
 
 Pagination.propTypes = {
 	totalPages: PropTypes.number,
+	scrollAnchor: PropTypes.string,
 };

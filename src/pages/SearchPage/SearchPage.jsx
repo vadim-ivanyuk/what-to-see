@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import { useFilters } from '../../store/selectors';
 
@@ -21,9 +21,14 @@ export const SearchPage = () => {
 	const { type, page } = useSelector(useFilters);
 	const { search } = useLocation();
 	const [, searchParams] = search.split('=');
+	const history = useHistory();
 
 	useEffect(() => {
-		getSearchData();
+		if (searchParams.length) {
+			getSearchData();
+		} else {
+			history.push('/');
+		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchParams, type, page]);
@@ -54,7 +59,7 @@ export const SearchPage = () => {
 					<SearchFilters totalResults={totalResults} />
 					<MoviesListWrapper>
 						<List list={searchResults} />
-						<Pagination totalPages={totalPages} />
+						<Pagination totalPages={totalPages} scrollAnchor={'header'} />
 					</MoviesListWrapper>
 				</FlexWrapper>
 			</Container>

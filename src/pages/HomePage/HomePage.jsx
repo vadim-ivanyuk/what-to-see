@@ -53,7 +53,7 @@ export const HomePage = () => {
 					<Filters />
 					<MoviesListWrapper>
 						<List list={list} />
-						<Pagination totalPages={totalPages} />
+						<Pagination totalPages={totalPages} scrollAnchor={'homeMenu'} />
 					</MoviesListWrapper>
 				</FlexWrapper>
 			</Container>

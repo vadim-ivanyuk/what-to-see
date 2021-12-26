@@ -5,6 +5,7 @@ import { myAxios, handleError } from '../../helpers';
 
 import { MainInfo } from '../../components/MainInfo';
 import { Trailers } from '../../components/Trailers';
+import { Actors } from '../../components/Actors';
 import { AdditionalInfo } from '../../components/AdditionalInfo';
 import { SimilarMovies } from '../../components/SimilarMovies';
 
@@ -14,6 +15,10 @@ export const TvPage = () => {
 
 	useEffect(() => {
 		getTv();
+
+		document.querySelector('#header').scrollIntoView({
+			behavior: 'smooth',
+		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tvId]);
 
@@ -32,6 +37,7 @@ export const TvPage = () => {
 		<div>
 			<MainInfo info={tv} />
 			<Trailers activeId={tvId} />
+			<Actors activeId={tvId} />
 			<AdditionalInfo info={tv} />
 			<SimilarMovies activeId={tvId} />
 		</div>

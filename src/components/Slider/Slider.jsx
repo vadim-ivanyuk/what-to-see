@@ -6,11 +6,11 @@ import 'swiper/swiper.min.css';
 import 'swiper/components/pagination/pagination.min.css';
 import './slider.css';
 
-import { MovieCard } from '../MovieCard';
+import { Card } from '../Card/Card';
 
 SwiperCore.use([Pagination]);
 
-export const Slider = ({ moviesList }) => {
+export const Slider = ({ list, cardType }) => {
 	return (
 		<Swiper
 			grabCursor={true}
@@ -38,9 +38,9 @@ export const Slider = ({ moviesList }) => {
 			}}
 			className='slider'
 		>
-			{moviesList.map((movieListItem, index) => (
-				<SwiperSlide key={movieListItem.id} virtualIndex={index}>
-					<MovieCard movie={movieListItem} />
+			{list.map((listItem, index) => (
+				<SwiperSlide key={listItem.id} virtualIndex={index}>
+					<Card list={listItem} cardType={cardType} />
 				</SwiperSlide>
 			))}
 		</Swiper>
@@ -48,7 +48,8 @@ export const Slider = ({ moviesList }) => {
 };
 
 Slider.propTypes = {
-	moviesList: PropTypes.arrayOf(
+	cardType: PropTypes.string,
+	list: PropTypes.arrayOf(
 		PropTypes.shape({
 			adult: PropTypes.bool,
 			backdrop_path: PropTypes.string,

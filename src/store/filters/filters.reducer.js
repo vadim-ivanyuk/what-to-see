@@ -8,6 +8,8 @@ const initialState = {
 	releaseDates: ['', dayjs().format('YYYY-MM-DD')],
 	with_genres: [],
 	with_keywords: [],
+	with_runtime: ['0', 400],
+	vote_average: ['0', 10],
 	page: 1,
 };
 

@@ -32,7 +32,7 @@ export const Search = () => {
 	};
 
 	return (
-		<Wrapper>
+		<Wrapper id='search'>
 			<Container>
 				<SearchWrapper>
 					<Image src={searchImage} alt='' />
