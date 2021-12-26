@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './App';
 import './index.css';
+import './multiRangeSlider.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

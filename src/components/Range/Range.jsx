@@ -8,7 +8,6 @@ import { onChangeFilters } from '../../store/filters/filters.actions';
 import { useRange } from '../../hooks';
 
 import { RangeWrapper, Select } from './Range.style';
-import './multiRangeSlider.css';
 
 export const Range = ({ min, max, step, durationType, storeFilter }) => {
 	const filters = useSelector(useFilters);

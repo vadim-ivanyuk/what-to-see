@@ -18,7 +18,7 @@ export const ActorCard = ({ actor }) => {
 	return (
 		<ActorCardWrapper>
 			<div>
-				<Link to={`/actors/${actor.id}`}>
+				<Link to={`/actor/${actor.id}`}>
 					<PosterImage
 						src={
 							actor.profile_path
@@ -34,7 +34,7 @@ export const ActorCard = ({ actor }) => {
 					{String(actor.popularity).substr(0, 3).replace('.', '')}
 				</RateActor>
 				<ActorName>
-					<Link to={`/actors/${actor.id}`}>{actor.name}</Link>
+					<Link to={`/actor/${actor.id}`}>{actor.name}</Link>
 				</ActorName>
 				<Character>
 					<b>Character</b>: {actor.character}
