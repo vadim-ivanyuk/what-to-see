@@ -24,3 +24,8 @@
 .multi-range-slider .bar-right {
     background: #ffffff;
 }
+
+.multi-range-slider .thumb * {
+    background: #24242c !important;
+    box-shadow: none !important;
+}
