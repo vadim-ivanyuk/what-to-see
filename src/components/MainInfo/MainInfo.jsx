@@ -25,22 +25,12 @@ import {
 	Overview,
 } from './MainInfo.style';
 
-const getValueFromArray = (arr = []) => {
-	let resultArr = [];
-
-	arr.forEach((item) => {
-		resultArr.push(item.name);
-	});
-
-	return resultArr;
-};
+const getNameFromArray = (arr = []) => arr.map((item) => item.name).join(', ');
 
 const getBackgropImage = (info = {}) => {
-	if (info.backdrop_path) {
-		return `${API_IMG_URL_W1920}${info.backdrop_path}`;
-	}
-
-	return defaultBackdropImage;
+	return info.backdrop_path
+		? `${API_IMG_URL_W1920}${info.backdrop_path}`
+		: defaultBackdropImage;
 };
 
 const convertMovieVoteAvarage = (vote_average) => {
@@ -86,7 +76,7 @@ export const MainInfo = ({ info = {} }) => {
 						</Paragraph>
 						<Paragraph>
 							<BoldText>Жанры - </BoldText>
-							{getValueFromArray(info.genres).join(', ')}
+							{getNameFromArray(info.genres)}
 						</Paragraph>
 						<Paragraph>
 							<BoldText>Язык оригинала - </BoldText>
@@ -94,11 +84,11 @@ export const MainInfo = ({ info = {} }) => {
 						</Paragraph>
 						<Paragraph>
 							<BoldText>Компания - </BoldText>
-							{getValueFromArray(info.production_companies).join(', ')}
+							{getNameFromArray(info.production_companies)}
 						</Paragraph>
 						<Paragraph>
 							<BoldText>Страна - </BoldText>
-							{getValueFromArray(info.production_countries).join(', ')}
+							{getNameFromArray(info.production_countries)}
 						</Paragraph>
 						<OverviewTitle>Обзор</OverviewTitle>
 						<Overview tagline={!!info.tagline}>{info.overview}</Overview>
