@@ -29,7 +29,7 @@ export const Actors = ({ activeId }) => {
 	return (
 		<Container>
 			<Title text={'Actors'} />
-			<Slider list={actors} cardType={'actors'} />
+			<Slider list={actors} cardType={'person'} />
 		</Container>
 	);
 };

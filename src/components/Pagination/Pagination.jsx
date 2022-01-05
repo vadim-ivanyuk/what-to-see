@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,28 +7,31 @@ import { onChangeFilters } from '../../store/filters/filters.actions';
 
 import { Button } from '../Button';
 
+import { useFirstRender } from '../../hooks/useFirstRender';
+
 import { Wrapper, PaginationWrapper } from './Pagination.style';
 
 export const Pagination = ({ totalPages, scrollAnchor }) => {
 	const { page } = useSelector(useFilters);
+	const isFirstRender = useFirstRender();
 	const dispatch = useDispatch();
 
-	const scrollToHomeMenu = () => {
-		document.querySelector(`#${scrollAnchor}`).scrollIntoView({
-			behavior: 'smooth',
-		});
-	};
+	useEffect(() => {
+		if (!isFirstRender) {
+			document.querySelector(`#${scrollAnchor}`).scrollIntoView({
+				behavior: 'smooth',
+			});
+		}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [page]);
 
 	const incrementPage = () => {
 		dispatch(onChangeFilters({ name: 'page', value: page + 1 }));
-
-		scrollToHomeMenu();
 	};
 
 	const decrementPage = () => {
 		dispatch(onChangeFilters({ name: 'page', value: page - 1 }));
-
-		scrollToHomeMenu();
 	};
 
 	return (

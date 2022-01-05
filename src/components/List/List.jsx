@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+
+import { useFilters } from '../../store/selectors';
 
 import { Loader } from '../Loader';
-import { MovieCard } from '../MovieCard';
+import { Card } from '../Card';
 
 import { Wrapper } from './List.style.';
 
 export const List = ({ list = [] }) => {
+	const { type } = useSelector(useFilters);
+
 	return (
 		<Wrapper>
 			{list.length ? (
-				list.map((movie) => {
-					return <MovieCard key={movie.id} movie={movie} />;
+				list.map((list) => {
+					return <Card key={list.id} list={list} cardType={type} />;
 				})
 			) : (
 				<Loader />

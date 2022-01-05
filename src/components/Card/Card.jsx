@@ -6,7 +6,7 @@ import { MovieCard } from '../MovieCard';
 
 export const Card = ({ cardType, list }) => {
 	switch (cardType) {
-		case 'actors':
+		case 'person':
 			return <ActorCard actor={list} />;
 		default:
 			return <MovieCard movie={list} />;
