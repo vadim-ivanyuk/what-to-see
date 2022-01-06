@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/what-to-see/static/css/main.2283814d.chunk.css",
-    "main.js": "/what-to-see/static/js/main.ba750b91.chunk.js",
-    "main.js.map": "/what-to-see/static/js/main.ba750b91.chunk.js.map",
-    "runtime-main.js": "/what-to-see/static/js/runtime-main.f346391e.js",
-    "runtime-main.js.map": "/what-to-see/static/js/runtime-main.f346391e.js.map",
+    "main.js": "/what-to-see/static/js/main.4badeeb0.chunk.js",
+    "main.js.map": "/what-to-see/static/js/main.4badeeb0.chunk.js.map",
+    "runtime-main.js": "/what-to-see/static/js/runtime-main.76112021.js",
+    "runtime-main.js.map": "/what-to-see/static/js/runtime-main.76112021.js.map",
     "static/css/2.9bd832eb.chunk.css": "/what-to-see/static/css/2.9bd832eb.chunk.css",
-    "static/js/2.255ed230.chunk.js": "/what-to-see/static/js/2.255ed230.chunk.js",
-    "static/js/2.255ed230.chunk.js.map": "/what-to-see/static/js/2.255ed230.chunk.js.map",
-    "static/js/3.96ffaa8f.chunk.js": "/what-to-see/static/js/3.96ffaa8f.chunk.js",
-    "static/js/3.96ffaa8f.chunk.js.map": "/what-to-see/static/js/3.96ffaa8f.chunk.js.map",
+    "static/js/2.67fd785b.chunk.js": "/what-to-see/static/js/2.67fd785b.chunk.js",
+    "static/js/2.67fd785b.chunk.js.map": "/what-to-see/static/js/2.67fd785b.chunk.js.map",
+    "static/js/3.3246a830.chunk.js": "/what-to-see/static/js/3.3246a830.chunk.js",
+    "static/js/3.3246a830.chunk.js.map": "/what-to-see/static/js/3.3246a830.chunk.js.map",
     "index.html": "/what-to-see/index.html",
     "static/css/2.9bd832eb.chunk.css.map": "/what-to-see/static/css/2.9bd832eb.chunk.css.map",
     "static/css/main.2283814d.chunk.css.map": "/what-to-see/static/css/main.2283814d.chunk.css.map",
-    "static/js/2.255ed230.chunk.js.LICENSE.txt": "/what-to-see/static/js/2.255ed230.chunk.js.LICENSE.txt",
+    "static/js/2.67fd785b.chunk.js.LICENSE.txt": "/what-to-see/static/js/2.67fd785b.chunk.js.LICENSE.txt",
     "static/media/not-found-backdrop.6eb105a9.jpg": "/what-to-see/static/media/not-found-backdrop.6eb105a9.jpg",
     "static/media/not-found-poster.e6c7ea26.jpg": "/what-to-see/static/media/not-found-poster.e6c7ea26.jpg",
     "static/media/search-image.6368c13c.jpg": "/what-to-see/static/media/search-image.6368c13c.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f346391e.js",
+    "static/js/runtime-main.76112021.js",
     "static/css/2.9bd832eb.chunk.css",
-    "static/js/2.255ed230.chunk.js",
+    "static/js/2.67fd785b.chunk.js",
     "static/css/main.2283814d.chunk.css",
-    "static/js/main.ba750b91.chunk.js"
+    "static/js/main.4badeeb0.chunk.js"
   ]
 }
