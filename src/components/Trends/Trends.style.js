@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { colorDark, colorWhite } from '../../theme/colors';
 
 export const TrendsWrapper = styled.div`
+	max-width: calc(100vw - 30px);
+	overflow: hidden;
 	margin: 10px 0px;
 `;
 
@@ -11,6 +13,11 @@ export const FlexWrapper = styled.div`
 	width: 350px;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: 400px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;
 
 export const Title = styled.p`

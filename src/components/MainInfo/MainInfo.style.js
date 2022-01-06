@@ -177,7 +177,7 @@ export const Overview = styled.div`
 		overflow-y: hidden;
 	}
 	@media (max-width: 450px) {
-		max-height: ${({ tagline }) => (tagline ? '100px' : '130px')};
+		max-height: ${({ tagline }) => (tagline ? '170px' : '190px')};
 		overflow-y: auto;
 		margin-top: 5px;
 	}

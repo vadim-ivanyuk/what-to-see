@@ -25,12 +25,12 @@ export const AdditionalInfo = ({ info = {} }) => {
 					<MoreInfoWrapper>
 						<MoreInfo info={info} />
 					</MoreInfoWrapper>
-					<KeywordsWrapper>
-						<MovieKeywords activeId={info.id} />
-					</KeywordsWrapper>
 					<SocialWrapper>
 						<Social activeId={info.id} />
 					</SocialWrapper>
+					<KeywordsWrapper>
+						<MovieKeywords activeId={info.id} />
+					</KeywordsWrapper>
 				</FlexWrapper>
 			</Container>
 		</Wrapper>

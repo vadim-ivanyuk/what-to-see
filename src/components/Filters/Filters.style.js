@@ -5,6 +5,10 @@ import { colorWhite } from '../../theme/colors';
 export const Wrapper = styled.div`
 	width: 325px;
 	min-width: 250px;
+
+	@media (max-width: 800px) {
+		display: none;
+	}
 `;
 
 export const FiltersLabel = styled.label`

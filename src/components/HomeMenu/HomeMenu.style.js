@@ -10,6 +10,7 @@ export const MoviesMenuWrapper = styled.div`
 
 export const Wrapper = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 `;
 
 export const MenuTitle = styled.p`

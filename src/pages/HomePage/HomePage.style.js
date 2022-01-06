@@ -7,4 +7,8 @@ export const FlexWrapper = styled.div`
 export const MoviesListWrapper = styled.div`
 	width: 75%;
 	padding: 0px 10px;
+
+	@media (max-width: 800px) {
+		width: 100%;
+	}
 `;
