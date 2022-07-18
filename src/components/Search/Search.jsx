@@ -39,7 +39,7 @@ export const Search = () => {
 					<AboveImage>
 						<div>
 							<Title>
-								Добро пожаловать на "What <span>to see?"</span>
+								Добро пожаловать на "What <span>to watch?"</span>
 							</Title>
 							<SubTitle>
 								Данный ресурс предназначен для поиска фильмов, акётров и

@@ -12,7 +12,7 @@ export const Header = () => {
 				<Logo>
 					<Name>
 						<Link to='/'>
-							What <span> to see?</span>
+							What <span> to watch?</span>
 						</Link>
 					</Name>
 					<WithTmdbApi>with TMDB api</WithTmdbApi>
