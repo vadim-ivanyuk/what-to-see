@@ -17,7 +17,7 @@ import { SearchPage } from './pages/SearchPage';
 
 export default function App() {
 	return (
-		<Router basename='/what-to-see/'>
+		<Router basename='/what-to-watch/'>
 			<Header />
 			<Switch>
 				<Route exact path='/' component={HomePage} />
