@@ -1,5 +1,5 @@
 {
-  "name": "what-to-see",
+  "name": "what-to-watch",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -61,5 +61,5 @@
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2"
   },
-  "homepage": "https://vadim-ivanyuk.github.io/what-to-see/"
+  "homepage": "https://vadim-ivanyuk.github.io/what-to-watch/"
 }
