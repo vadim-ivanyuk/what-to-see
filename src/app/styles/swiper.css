@@ -1,0 +1,15 @@
+.slider {
+	width: calc(100vw - 40px);
+	max-width: 1250px;
+	margin: 10px 0px;
+}
+
+.slider > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+	bottom: 0px;
+}
+
+.slider
+	.swiper-pagination-bullets-dynamic
+	.swiper-pagination-bullet-active-main {
+	background: #24242c;
+}

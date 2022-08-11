@@ -1,1 +1,0 @@
-export { SubTypesList } from './SubTypesList';

@@ -1,1 +1,0 @@
-export { UserRating } from './UserRating';
