@@ -5,7 +5,6 @@ export const withRouter = (component) => () => {
 	return (
 		<BrowserRouter basename='/what-to-watch/'>
 			<Suspense fallback={<div>Hello World</div>}>{component()}</Suspense>
-			{/* {component()} */}
 		</BrowserRouter>
 	);
 };
