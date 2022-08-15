@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-import { MovieCard } from 'entities/movie-card';
+import { Movies } from './movies';
+import { Search } from './search';
 
-const DynamicPagination = ({ children, getData }) => {
-	const [data, setData] = useState([]);
+const DynamicPagination = ({ children }) => {
 	const [fetching, setFetching] = useState(true);
-	const [currentPage, setCurrentPage] = useState(1);
-
-	useEffect(() => {
-		if (fetching) {
-			getData(currentPage).then(({ data: newData }) => {
-				setData([...data, ...newData]);
-				setCurrentPage((prevPage) => prevPage + 1);
-				setFetching(false);
-			});
-		}
-	}, [fetching]);
+	const [totalPages, setTotalPages] = useState(1);
+	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		document.addEventListener('scroll', handleScroll);
@@ -25,9 +16,17 @@ const DynamicPagination = ({ children, getData }) => {
 		};
 	}, []);
 
+	const updateState = useCallback((loadedData) => {
+		setData(loadedData?.results ?? data);
+		setFetching(false);
+		setTotalPages(loadedData?.total_pages ?? totalPages);
+
+		// eslint-disable-next-line
+	}, []);
+
 	const handleScroll = ({ target }) => {
 		const { scrollHeight, scrollTop } = target.documentElement;
-		const isBottom = scrollHeight - (scrollTop + window.innerHeight) < 100;
+		const isBottom = scrollHeight - (scrollTop + window.innerHeight) < 300;
 
 		if (isBottom) {
 			setFetching(true);
@@ -36,7 +35,11 @@ const DynamicPagination = ({ children, getData }) => {
 
 	const childrenWithProps = React.Children.map(children, (child) => {
 		if (React.isValidElement(child)) {
-			return React.cloneElement(child, { data });
+			return React.cloneElement(child, {
+				data,
+				fetching,
+				updateState,
+			});
 		}
 		return child;
 	});
@@ -44,14 +47,7 @@ const DynamicPagination = ({ children, getData }) => {
 	return childrenWithProps;
 };
 
-DynamicPagination.Movies = React.memo(({ data }) => {
-	return (
-		<>
-			{data?.map((movie) => (
-				<MovieCard key={movie.id} {...movie} />
-			))}
-		</>
-	);
-});
+DynamicPagination.Movies = Movies;
+DynamicPagination.Search = Search;
 
 export { DynamicPagination };

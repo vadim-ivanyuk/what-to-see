@@ -8,8 +8,8 @@ export const moviesApi = createApi({
 	}),
 	endpoints: (build) => ({
 		getTrending: build.query({
-			query: (time_window) => ({
-				url: `trending/movie/${time_window}`,
+			query: ({ type, timeWindow }) => ({
+				url: `trending/${type}/${timeWindow}`,
 				params: {
 					api_key: API_KEY_MOVIE_DB_V3,
 				},
@@ -17,16 +17,16 @@ export const moviesApi = createApi({
 			transformResponse: (response) => response.results,
 		}),
 		getMovies: build.query({
-			query: (page) => ({
-				url: `/discover/movie`,
+			query: ({ page, filters }) => ({
+				url: `/discover/${filters.type}`,
 				params: {
 					api_key: API_KEY_MOVIE_DB_V3,
 					page,
+					...filters,
 				},
 			}),
-			transformResponse: (response) => response.results,
 		}),
 	}),
 });
 
-export const { useGetTrendingQuery, useLazyGetMoviesQuery } = moviesApi;
+export const { useLazyGetTrendingQuery, useLazyGetMoviesQuery } = moviesApi;

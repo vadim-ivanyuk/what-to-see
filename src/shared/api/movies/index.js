@@ -1,1 +1,1 @@
-export { useGetTrendingQuery, useLazyGetMoviesQuery } from './movies.api';
+export { useLazyGetTrendingQuery, useLazyGetMoviesQuery } from './movies.api';

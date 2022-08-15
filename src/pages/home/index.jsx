@@ -1,5 +1,14 @@
 import { Layout } from 'shared';
-import { SearchWidget, Trends, MovieList } from 'widgets';
+import {
+	SearchWidget,
+	Trends,
+	MovieList,
+	HomeNavigation,
+	Sort,
+	Filters,
+} from 'widgets';
+
+import { StyledContainer, StyledFiltersContainer } from './index.style';
 
 export default function Home() {
 	return (
@@ -7,7 +16,14 @@ export default function Home() {
 			<SearchWidget />
 			<Layout.Container>
 				<Trends />
-				<MovieList />
+				<HomeNavigation />
+				<StyledContainer>
+					<StyledFiltersContainer>
+						<Sort />
+						<Filters />
+					</StyledFiltersContainer>
+					<MovieList />
+				</StyledContainer>
 			</Layout.Container>
 		</div>
 	);

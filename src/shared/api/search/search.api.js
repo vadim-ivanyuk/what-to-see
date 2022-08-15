@@ -8,16 +8,16 @@ export const searchApi = createApi({
 	}),
 	endpoints: (build) => ({
 		searchData: build.query({
-			query: (query) => ({
-				url: `search/movie`,
+			query: ({ query, page, searchType }) => ({
+				url: `search/${searchType}`,
 				params: {
-					query,
 					api_key: API_KEY_MOVIE_DB_V3,
+					query,
+					page,
 				},
 			}),
-			transformResponse: (response) => response.results,
 		}),
 	}),
 });
 
-export const { useSearchDataQuery } = searchApi;
+export const { useLazySearchDataQuery } = searchApi;

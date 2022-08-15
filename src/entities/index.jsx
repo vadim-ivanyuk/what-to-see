@@ -1,4 +1,2 @@
-import { MovieCard } from './movie-card';
-import { Checkbox } from './checkbox';
-
-export { MovieCard, Checkbox };
+export { Checkbox } from './checkbox';
+export { MovieCard } from './MovieCard';

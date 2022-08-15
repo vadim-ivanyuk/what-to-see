@@ -1,1 +1,1 @@
-export { useSearchDataQuery } from './search.api';
+export { useLazySearchDataQuery } from './search.api';

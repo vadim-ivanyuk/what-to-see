@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 import { MovieSlider } from 'features';
-import { Typography } from 'shared';
-import { useGetTrendingQuery } from 'shared/api/movies';
+import { Typography, useFiltersSelector } from 'shared';
+import { useLazyGetTrendingQuery } from 'shared/api/movies';
 
 import { CheckboxesGroup } from './checkboxes-group';
 
@@ -11,7 +12,12 @@ import { StyledTrendsGroup } from './index.style';
 
 export function Trends() {
 	const [timeWindow, setTimeWindow] = useState('day');
-	const { data } = useGetTrendingQuery(timeWindow);
+	const [getTrends, { data }] = useLazyGetTrendingQuery();
+	const { type } = useSelector(useFiltersSelector);
+
+	useEffect(() => {
+		getTrends({ type, timeWindow });
+	}, [getTrends, type, timeWindow]);
 
 	const handleChangeTimeWindow = () => {
 		setTimeWindow(timeWindows[timeWindow]);

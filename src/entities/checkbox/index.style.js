@@ -6,6 +6,7 @@ export const StyledCheckbox = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: max-content;
+	height: 100%;
 	border: 1px solid ${theme.COLOR_DARK};
 	border-radius: 14px;
 	padding: 0 10px;

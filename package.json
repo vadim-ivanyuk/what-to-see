@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "compose-function": "^3.0.3",
     "dayjs": "^1.10.7",
     "multi-range-slider-react": "^1.0.5",
@@ -16,10 +13,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.2",
-    "redux-devtools-extension": "^2.13.9",
+    "reselect": "^4.1.6",
     "styled-components": "^5.3.3",
-    "swiper": "^6.8.4",
-    "web-vitals": "^1.1.2"
+    "swiper": "^6.8.4"
   },
   "scripts": {
     "start": "react-scripts start",
