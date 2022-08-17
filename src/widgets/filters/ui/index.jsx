@@ -1,13 +1,14 @@
 import { useSelector } from 'react-redux';
 
-import { Typography, useFiltersSelector } from 'shared';
+import { Typography, useContentSelector, useFiltersSelector } from 'shared';
 
 import { ReleaseDates } from './release-dates';
 import { Genres } from './genres';
 import { StyledFilters } from './index.style';
 
 export const Filters = () => {
-	const { type, with_genres } = useSelector(useFiltersSelector);
+	const type = useSelector(useContentSelector);
+	const { with_genres } = useSelector(useFiltersSelector);
 
 	return (
 		<StyledFilters>

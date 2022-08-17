@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux';
 
 import { MovieCard } from 'entities/movie-card';
 import { useLazyGetMoviesQuery } from 'shared/api/movies';
-import { useFiltersSelector } from 'shared';
+import { useContentSelector, useFiltersSelector } from 'shared';
 
 export const Movies = React.memo(({ data, fetching, updateState }) => {
 	const [getMovies] = useLazyGetMoviesQuery();
 	const [page, setPage] = useState(1);
 	const filters = useSelector(useFiltersSelector);
+	const type = useSelector(useContentSelector);
 
 	useEffect(() => {
 		if (fetching) {
@@ -22,10 +23,10 @@ export const Movies = React.memo(({ data, fetching, updateState }) => {
 		gettingMovies();
 
 		// eslint-disable-next-line
-	}, [filters]);
+	}, [filters, type]);
 
 	const gettingMovies = (page = 1, isFetching = false) => {
-		getMovies({ page, filters }).then(({ data: moviesData }) => {
+		getMovies({ page, type, filters }).then(({ data: moviesData }) => {
 			updateState({
 				...moviesData,
 				results: isFetching

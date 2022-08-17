@@ -6,6 +6,7 @@ import { moviesApi } from './movies/movies.api';
 import { filtersApi } from './filters/filters.api';
 import { filterSlice } from './filters/filters.slice';
 import { searchSlice } from './search/search.slice';
+import { contentSlice } from './content/content.slice';
 
 export const store = configureStore({
 	reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
 		[filtersApi.reducerPath]: filtersApi.reducer,
 		filters: filterSlice.reducer,
 		search: searchSlice.reducer,
+		content: contentSlice.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(

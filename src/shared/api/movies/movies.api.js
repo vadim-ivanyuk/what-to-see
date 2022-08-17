@@ -17,8 +17,8 @@ export const moviesApi = createApi({
 			transformResponse: (response) => response.results,
 		}),
 		getMovies: build.query({
-			query: ({ page, filters }) => ({
-				url: `/discover/${filters.type}`,
+			query: ({ page, type, filters }) => ({
+				url: `/discover/${type}`,
 				params: {
 					api_key: API_KEY_MOVIE_DB_V3,
 					page,

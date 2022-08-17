@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { MovieSlider } from 'features';
-import { Typography, useFiltersSelector } from 'shared';
+import { Typography, useContentSelector } from 'shared';
 import { useLazyGetTrendingQuery } from 'shared/api/movies';
 
 import { CheckboxesGroup } from './checkboxes-group';
@@ -10,10 +10,10 @@ import { CheckboxesGroup } from './checkboxes-group';
 import { timeWindows } from '../lib/timeWindows';
 import { StyledTrendsGroup } from './index.style';
 
-export function Trends() {
+export const Trends = () => {
 	const [timeWindow, setTimeWindow] = useState('day');
 	const [getTrends, { data }] = useLazyGetTrendingQuery();
-	const { type } = useSelector(useFiltersSelector);
+	const type = useSelector(useContentSelector);
 
 	useEffect(() => {
 		getTrends({ type, timeWindow });
@@ -37,4 +37,4 @@ export function Trends() {
 			<MovieSlider movies={data} />
 		</div>
 	);
-}
+};

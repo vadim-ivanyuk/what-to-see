@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import dayjs from 'dayjs';
 
 const initialState = {
-	type: 'movie',
 	sort_by: 'popularity.desc',
 	releaseDates: ['', dayjs().format('YYYY-MM-DD')],
 	with_genres: [],
